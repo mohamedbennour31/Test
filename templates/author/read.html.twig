@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Liste des Auteurs</title>
+	</head>
+	<body>
+		<h1>List Authors</h1>
+		{% if authors is empty %}
+			<p>Aucun auteur trouvé.</p>
+		{% else %}
+
+
+			<table border="1">
+				<thead>
+					<tr>
+
+
+						<th>Nom d'utilisateur</th>
+						<th>Email</th>
+						<th>Delete</th>
+						<th>
+							Update</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for author in authors %}
+						<tr>
+
+
+							<td>{{ author.username |upper }}</td>
+
+							<td>{{ author.email }}</td>
+							<td>
+								<a href="{{path('delete', {'id':author.id}) }}">Delete</a>
+							</td>
+							<td>
+								<a href="{{path('update_author', {'id':author.id}) }}">Update</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+		<button>
+			<a href="{{path('add')}}">Ajouter Author</a>
+		</button>
+	</body>
+</html>

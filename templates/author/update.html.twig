@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Author
+{% endblock %}
+
+{% block body %}
+	<h1>Edit Author</h1>
+
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+
+	<button class="btn btn-primary">{{ button_label|default('Save Changes') }}</button>
+	{{ form_end(form) }}
+
+	<a href="{{ path('read') }}" class="btn btn-secondary">Back to List</a>
+{% endblock %}

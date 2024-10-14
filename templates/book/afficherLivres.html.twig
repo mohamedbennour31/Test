@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Liste des livres</title>
+	</head>
+	<body>
+		<h1>Liste des livres</h1>
+		{% if books is empty %}
+			<p>Aucun auteur trouvé.</p>
+		{% else %}
+
+
+			<table border="1">
+				<thead>
+					<tr>
+
+
+						<th>id</th>
+						<th>titre</th>
+						<th>date publication</th>
+						<th>catégorie</th>
+						<th>published</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for book in books %}
+						<tr>
+
+							<td>{{ book.id  }}</td>
+							<td>{{ book.title |upper }}</td>
+
+							<td>{{ book.publicationDate|date('Y-m-d') }}</td>
+							<td>{{ book.category }}</td>
+							<td>{{ book.published }}</td>
+
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+	</body>
+</html>

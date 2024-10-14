@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Liste des Auteurs</title>
+	</head>
+	<body>
+		<h1>List Authors</h1>
+		{% if aeroports is empty %}
+			<p>Aucun auteur trouvé.</p>
+		{% else %}
+
+
+			<table border="1">
+				<thead>
+					<tr>
+
+						<th>id</th>
+						<th>Nom
+						</th>
+						<th>Ville</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for aeroport in aeroports %}
+						<tr>
+
+							<td>{{ aeroport.id }}
+							</td>
+							<td>{{ aeroport.ville  }}</td>
+
+							<td>{{ aeroport.nom }}</td>
+
+
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+		<button>
+			<a href="{{path('add_aeroport')}}">Ajouter</a>
+		</button>
+	</body>
+</html>
